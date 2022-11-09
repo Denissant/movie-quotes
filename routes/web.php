@@ -14,13 +14,8 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-	return view('index');
-});
-
-Route::get('/admin', function () {
-	return view('admin');
-})->middleware('auth');
+Route::view('/', 'index');
+Route::view('admin', 'admin')->middleware('auth');
 
 Route::get('login', [SessionsController::class, 'create'])->name('login')->middleware('guest');
 Route::post('login', [SessionsController::class, 'store'])->middleware('guest');

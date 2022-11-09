@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\StoreSessionRequest;
 use App\Providers\RouteServiceProvider;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\View\View;
@@ -13,13 +14,9 @@ class SessionsController extends Controller
 		return view('sessions.create');
 	}
 
-	public function store(): RedirectResponse
+	public function store(StoreSessionRequest $request): RedirectResponse
 	{
-		$attributes = request()->validate([
-			'username'    => ['required'],
-			'password'    => ['required'],
-		]);
-
+		$attributes = $request->validated();
 		$remember = request('remember-me') === 'on';
 
 		if (auth()->attempt($attributes, $remember))
