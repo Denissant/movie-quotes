@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\LanguageController;
+use App\Http\Controllers\MovieController;
 use App\Http\Controllers\SessionsController;
 use Illuminate\Support\Facades\Route;
 
@@ -17,9 +18,13 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('language/{locale}', [LanguageController::class, 'edit']);
 
-Route::view('/', 'index');
+// Movie
+Route::get('/', [MovieController::class, 'index']);
+
+// Admin
 Route::view('admin', 'admin')->middleware('auth');
 
+// Session
 Route::get('login', [SessionsController::class, 'create'])->name('login')->middleware('guest');
 Route::post('login', [SessionsController::class, 'store'])->middleware('guest');
 Route::post('logout', [SessionsController::class, 'destroy'])->middleware('auth');
