@@ -1,5 +1,5 @@
 function removeFlashedMessage() {
-    document.getElementById('flashed-message').remove();
+    document.getElementById('flashed-message')?.remove();
 }
 
 setTimeout(removeFlashedMessage, 5_000);
