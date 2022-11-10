@@ -30,6 +30,7 @@ Route::middleware('auth')->group(function () {
 	Route::post('admin/movies', [AdminMovieController::class, 'store']);
 	Route::get('admin/movies/{movie:slug}/edit', [AdminMovieController::class, 'edit']);
 	Route::patch('admin/movies/{movie:id}', [AdminMovieController::class, 'update']);
+	Route::delete('admin/movies/{movie:id}', [AdminMovieController::class, 'destroy']);
 });
 
 // Session

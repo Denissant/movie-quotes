@@ -49,6 +49,12 @@ class AdminMovieController extends Controller
 		return redirect('/admin/movies')->with('success', 'Movie updated successfully!');
 	}
 
+	public function destroy(Movie $movie)
+	{
+		$movie->delete();
+		return back()->with('success', 'Movie "' . $movie->title . '" deleted successfully!');
+	}
+
 	protected function reformatAttributes($attributes)
 	{
 		$attributes['title'] = [
