@@ -26,6 +26,8 @@ Route::get('/movies/{movie:slug}', [MovieController::class, 'show']);
 // Admin
 Route::middleware('auth')->group(function () {
 	Route::get('admin/movies', [AdminMovieController::class, 'index']);
+	Route::get('admin/movies/create', [AdminMovieController::class, 'create']);
+	Route::post('admin/movies', [AdminMovieController::class, 'store']);
 });
 
 // Session
