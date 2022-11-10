@@ -6,6 +6,7 @@
 
 * [Prerequisites](#prerequisites)
 * [Getting Started](#getting-started)
+* [Configuration](#configuration)
 * [Development](#development)
 
 #
@@ -34,10 +35,35 @@
     ```shell
       npm install
     ```
-4. Create the `.env` file:
+4. Create the `.env` file and generate an Application Key:
     ```shell
       cp .env.example .env
+      php artisan key:generate
     ```
+
+#
+
+## Configuration
+
+1. Modify the default database configuration in your `.env` file:
+   > DB_CONNECTION=mysql <br>
+   DB_HOST=127.0.0.1 <br>
+   DB_PORT=3306 <br>
+   DB_DATABASE=movie_quotes <br>
+   DB_USERNAME=<your_username> <br>
+   DB_PASSWORD=<your_password> <br>
+
+2. Run database migrations:
+
+```shell
+    php artisan migrate
+```
+
+3. Register an Admin User:
+
+```shell
+    php artisan register:admin
+```
 
 #
 
