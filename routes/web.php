@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\AdminMovieController;
 use App\Http\Controllers\LanguageController;
 use App\Http\Controllers\MovieController;
 use App\Http\Controllers\SessionsController;
@@ -23,7 +24,9 @@ Route::get('/', [MovieController::class, 'index']);
 Route::get('/movies/{movie:slug}', [MovieController::class, 'show']);
 
 // Admin
-Route::view('admin', 'admin')->middleware('auth');
+Route::middleware('auth')->group(function () {
+	Route::get('admin/movies', [AdminMovieController::class, 'index']);
+});
 
 // Session
 Route::get('login', [SessionsController::class, 'create'])->name('login')->middleware('guest');
