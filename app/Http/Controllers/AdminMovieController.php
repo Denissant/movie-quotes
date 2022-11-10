@@ -32,6 +32,23 @@ class AdminMovieController extends Controller
 		return redirect('/admin/movies')->with('success', 'Movie "' . $movie->title . '" added successfully!');
 	}
 
+	public function edit(Movie $movie): View
+	{
+		return view('admin.movie.edit', [
+			'movie'     => $movie,
+			'nav_title' => 'Edit: ' . $movie->title,
+		]);
+	}
+
+	public function update(StoreMovieRequest $request, Movie $movie): RedirectResponse
+	{
+		$attributes = $request->validated();
+		$attributes = $this->reformatAttributes($attributes);
+
+		$movie->update($attributes);
+		return redirect('/admin/movies')->with('success', 'Movie updated successfully!');
+	}
+
 	protected function reformatAttributes($attributes)
 	{
 		$attributes['title'] = [
