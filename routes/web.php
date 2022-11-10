@@ -20,6 +20,7 @@ Route::get('language/{locale}', [LanguageController::class, 'edit']);
 
 // Movie
 Route::get('/', [MovieController::class, 'index']);
+Route::get('/movies/{movie:slug}', [MovieController::class, 'show']);
 
 // Admin
 Route::view('admin', 'admin')->middleware('auth');
