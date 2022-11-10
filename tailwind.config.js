@@ -5,7 +5,11 @@ module.exports = {
       "./resources/**/*.js",
   ],
   theme: {
-    extend: {},
+    extend: {
+        fontFamily: {
+            'sansation': ['Sansation', 'sans-serif']
+        }
+    },
   },
   plugins: [
       require('@tailwindcss/forms'),

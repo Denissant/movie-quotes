@@ -1,2 +1,0 @@
-<x-base>
-</x-base>
