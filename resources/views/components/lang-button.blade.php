@@ -5,7 +5,7 @@
     if ($active) $classes .= ' bg-white text-black';
 @endphp
 
-<a href="/language/{{ $name }}">
+<a href="{{ route('language', $name) }}">
     <button {{ $attributes(['class' => $classes]) }}>
         {{ $name }}
     </button>

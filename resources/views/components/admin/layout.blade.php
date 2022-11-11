@@ -7,11 +7,11 @@
             <x-admin.breadcrumbs nav_title="{{ $nav_title }}" />
 
             <div class="absolute top-5 right-5 gap-5 flex">
-                <a href="/">
+                <a href="{{ route('movie.index') }}">
                     <x-button>Home</x-button>
                 </a>
 
-                <form method="POST" action="/logout" class="text-xs font-semibold">
+                <form method="POST" action="{{ route('logout') }}" class="text-xs font-semibold">
                     @csrf
                     <x-button>Log Out</x-button>
                 </form>

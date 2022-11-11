@@ -4,7 +4,9 @@
     <li class="flex">
         <div class="flex items-center">
             <x-svg.breadcrumb-arrow />
-            <a href="/admin/movies" class="ml-4 text-sm font-medium text-indigo-500 hover:text-gray-700">Movies</a>
+            <a href="{{ route('admin.movie.index') }}" class="ml-4 text-sm font-medium text-indigo-500 hover:text-gray-700">
+                Movies
+            </a>
         </div>
     </li>
 

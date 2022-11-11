@@ -1,7 +1,7 @@
 <x-admin.layout nav_title="{{ $nav_title }}">
 
     <x-admin.movie-form heading="Add a Movie">
-        <form class="space-y-6" action="/admin/movies" method="POST">
+        <form class="space-y-6" action="{{ route('admin.movie.store') }}" method="POST">
             @csrf
 
             <x-form.input name="title_en" label="Title in English" />

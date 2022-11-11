@@ -4,7 +4,7 @@
             <div>
                 <h2 class="mt-6 text-center text-3xl font-bold tracking-tight text-gray-900">Sign In as Admin</h2>
             </div>
-            <form class="mt-8 space-y-6" action="/login" method="POST">
+            <form class="mt-8 space-y-6" action="{{ route('login') }}" method="POST">
                 @csrf
 
                 <input type="hidden" name="remember" value="true">

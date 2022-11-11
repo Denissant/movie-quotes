@@ -29,7 +29,8 @@ class AdminMovieController extends Controller
 		$attributes['user_id'] = auth()->id();
 
 		$movie = Movie::create($attributes);
-		return redirect('/admin/movies')->with('success', 'Movie "' . $movie->title . '" added successfully!');
+		return redirect()->route('admin.movie.index')
+						 ->with('success', 'Movie "' . $movie->title . '" added successfully!');
 	}
 
 	public function edit(Movie $movie): View
@@ -46,7 +47,8 @@ class AdminMovieController extends Controller
 		$attributes = $this->reformatAttributes($attributes);
 
 		$movie->update($attributes);
-		return redirect('/admin/movies')->with('success', 'Movie updated successfully!');
+		return redirect()->route('admin.movie.index')
+						 ->with('success', 'Movie updated successfully!');
 	}
 
 	public function destroy(Movie $movie)
