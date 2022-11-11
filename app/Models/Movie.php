@@ -12,6 +12,8 @@ class Movie extends Model
 
 	use HasTranslations;
 
+	protected $guarded = [];
+
 	public array $translatable = ['title'];
 
 	public function author()

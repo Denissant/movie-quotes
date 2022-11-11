@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\AdminMovieController;
 use App\Http\Controllers\LanguageController;
 use App\Http\Controllers\MovieController;
 use App\Http\Controllers\SessionsController;
@@ -16,16 +17,20 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('language/{locale}', [LanguageController::class, 'edit']);
+Route::get('language/{locale}', [LanguageController::class, 'edit'])->name('language');
 
 // Movie
-Route::get('/', [MovieController::class, 'index']);
-Route::get('/movies/{movie:slug}', [MovieController::class, 'show']);
+Route::name('movie.')->group(function () {
+	Route::get('/', [MovieController::class, 'index'])->name('index');
+	Route::get('/movies/{movie:slug}', [MovieController::class, 'show'])->name('show');
+});
 
 // Admin
-Route::view('admin', 'admin')->middleware('auth');
+Route::group(['middleware' => 'auth', 'as' => 'admin.'], function () {
+	Route::resource('movie', AdminMovieController::class)->except('delete');
+});
 
 // Session
 Route::get('login', [SessionsController::class, 'create'])->name('login')->middleware('guest');
 Route::post('login', [SessionsController::class, 'store'])->middleware('guest');
-Route::post('logout', [SessionsController::class, 'destroy'])->middleware('auth');
+Route::post('logout', [SessionsController::class, 'destroy'])->name('logout')->middleware('auth');

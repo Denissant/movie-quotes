@@ -168,5 +168,8 @@ return [
 	|
 	*/
 
-	'attributes' => [],
+	'attributes' => [
+		'title_en' => 'title in English',
+		'title_ka' => 'title in Georgian',
+	],
 ];

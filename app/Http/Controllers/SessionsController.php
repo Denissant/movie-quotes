@@ -3,7 +3,6 @@
 namespace App\Http\Controllers;
 
 use App\Http\Requests\StoreSessionRequest;
-use App\Providers\RouteServiceProvider;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\View\View;
 
@@ -22,7 +21,8 @@ class SessionsController extends Controller
 		if (auth()->attempt($attributes, $remember))
 		{
 			session()->regenerate();
-			return redirect(RouteServiceProvider::HOME)->with('success', 'You have logged in successfully.');
+			return redirect()->route('admin.movie.index')
+							 ->with('success', 'You have logged in successfully.');
 		}
 
 		return back()
@@ -34,6 +34,6 @@ class SessionsController extends Controller
 	{
 		auth()->logout();
 
-		return redirect('/')->with('success', 'You have logged out.');
+		return redirect()->route('movie.index')->with('success', 'You have logged out.');
 	}
 }

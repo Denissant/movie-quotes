@@ -11,7 +11,7 @@
             <div class="text-3xl md:text-4xl 2xl:text-5xl text-center mx-6 max-w-4xl xl:mx-0">
                 <h2 class="mt-10 max-w-4xl">{{ $quote->content }}</h2>
                 <h2 class="mt-14 underline">
-                    <a href="/movies/{{ $movie->slug }}">
+                    <a href="{{ route('movie.show', $movie->slug) }}">
                         {{ $movie->title }}
                     </a>
                 </h2>
