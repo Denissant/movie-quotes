@@ -24,13 +24,8 @@ Route::get('/', [MovieController::class, 'index']);
 Route::get('/movies/{movie:slug}', [MovieController::class, 'show']);
 
 // Admin
-Route::middleware('auth')->group(function () {
-	Route::get('admin/movies', [AdminMovieController::class, 'index']);
-	Route::get('admin/movies/create', [AdminMovieController::class, 'create']);
-	Route::post('admin/movies', [AdminMovieController::class, 'store']);
-	Route::get('admin/movies/{movie:slug}/edit', [AdminMovieController::class, 'edit']);
-	Route::patch('admin/movies/{movie:id}', [AdminMovieController::class, 'update']);
-	Route::delete('admin/movies/{movie:id}', [AdminMovieController::class, 'destroy']);
+Route::group(['middleware' => 'auth', 'as' => 'admin.'], function () {
+	Route::resource('movie', AdminMovieController::class)->except('delete');
 });
 
 // Session
