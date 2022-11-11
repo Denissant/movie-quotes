@@ -1,16 +1,12 @@
 <x-base>
-    <form
-        method="POST"
-        action="/login"
-        class="flex min-h-full items-center justify-center py-12 px-4 sm:px-6 lg:px-8"
-    >
-        @csrf
-
+    <main class="flex min-h-full items-center justify-center py-12 px-4 sm:px-6 lg:px-8">
         <div class="w-full max-w-md space-y-8">
             <div>
                 <h2 class="mt-6 text-center text-3xl font-bold tracking-tight text-gray-900">Sign In as Admin</h2>
             </div>
-            <form class="mt-8 space-y-6" action="#" method="POST">
+            <form class="mt-8 space-y-6" action="/login" method="POST">
+                @csrf
+
                 <input type="hidden" name="remember" value="true">
                 <div class="-space-y-px rounded-md shadow-sm">
                     <div>
@@ -63,5 +59,5 @@
                 </div>
             </form>
         </div>
-    </form>
+    </main>
 </x-base>
