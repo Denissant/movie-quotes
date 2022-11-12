@@ -13,13 +13,13 @@ class AdminMovieController extends Controller
 	{
 		return view('admin.movie.index', [
 			'movies'    => Movie::all(),
-			'nav_title' => null,
+			'nav_title' => [],
 		]);
 	}
 
 	public function create(): View
 	{
-		return view('admin.movie.create', ['nav_title' => 'Add Movie']);
+		return view('admin.movie.create', ['nav_title' => ['Add Movie']]);
 	}
 
 	public function store(StoreMovieRequest $request): RedirectResponse
@@ -37,7 +37,7 @@ class AdminMovieController extends Controller
 	{
 		return view('admin.movie.edit', [
 			'movie'     => $movie,
-			'nav_title' => 'Edit: ' . $movie->title,
+			'nav_title' => ['Edit: ' . $movie->title],
 		]);
 	}
 
