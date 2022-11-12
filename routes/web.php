@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\AdminMovieController;
+use App\Http\Controllers\AdminQuoteController;
 use App\Http\Controllers\LanguageController;
 use App\Http\Controllers\MovieController;
 use App\Http\Controllers\SessionsController;
@@ -28,6 +29,7 @@ Route::name('movie.')->group(function () {
 // Admin
 Route::group(['middleware' => 'auth', 'as' => 'admin.', 'prefix' => 'admin'], function () {
 	Route::resource('movie', AdminMovieController::class)->except('show', 'delete');
+	Route::resource('movie.quote', AdminQuoteController::class)->except('show', 'delete');
 });
 
 // Session

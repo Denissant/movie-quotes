@@ -12,6 +12,8 @@ class Quote extends Model
 
 	use HasTranslations;
 
+	protected $guarded = [];
+
 	public array $translatable = ['content'];
 
 	public function author()

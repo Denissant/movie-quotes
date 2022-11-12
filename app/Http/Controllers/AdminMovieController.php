@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Http\Requests\StoreMovieRequest;
 use App\Models\Movie;
 use Illuminate\Http\RedirectResponse;
+use Illuminate\Support\Facades\Storage;
 use Illuminate\View\View;
 
 class AdminMovieController extends Controller
@@ -53,6 +54,11 @@ class AdminMovieController extends Controller
 
 	public function destroy(Movie $movie)
 	{
+		foreach ($movie->quotes as $quote)
+		{
+			Storage::delete($quote->image);
+		}
+
 		$movie->delete();
 		return back()->with('success', 'Movie "' . $movie->title . '" deleted successfully!');
 	}
