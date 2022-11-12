@@ -22,7 +22,10 @@
     </td>
 
     <td class="relative whitespace-nowrap py-4 pl-3 pr-4 text-right text-sm font-medium sm:pr-6">
-        <a href="#" class="text-indigo-600 hover:text-indigo-900">Manage Quotes</a>
+        <a href="{{ route('admin.movie.quote.index', $movie->id) }}"
+           class="text-indigo-600 hover:text-indigo-900 ring-indigo-500 ring-1 ring-offset-8 rounded-xl @if($is_odd) ring-offset-indigo-50 @endif">
+            Manage Quotes
+        </a>
     </td>
 
     <td class="relative whitespace-nowrap py-4 pl-3 pr-4 text-right text-sm font-medium sm:pr-6">
