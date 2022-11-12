@@ -1,10 +1,10 @@
-@props(['nav_title'])
+@props(['nav_title', 'movie' => ''])
 
 <x-base>
     <main class="min-h-screen bg-neutral-100">
         <nav class="bg-zinc-200 h-20 flex">
 
-            <x-admin.breadcrumbs nav_title="{{ $nav_title }}" />
+            <x-admin.breadcrumbs :nav_title="$nav_title" :movie="$movie" />
 
             <div class="absolute top-5 right-5 gap-5 flex">
                 <a href="{{ route('movie.index') }}">

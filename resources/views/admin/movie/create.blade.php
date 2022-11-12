@@ -1,4 +1,4 @@
-<x-admin.layout nav_title="{{ $nav_title }}">
+<x-admin.layout :nav_title="$nav_title">
 
     <x-admin.movie-form heading="Add a Movie">
         <form class="space-y-6" action="{{ route('admin.movie.store') }}" method="POST">

@@ -1,4 +1,4 @@
-<x-admin.layout nav_title="{{ $nav_title }}">
+<x-admin.layout :nav_title="$nav_title">
 
     @vite('resources/js/deleteConfirmation.js')
 
