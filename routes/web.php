@@ -26,8 +26,8 @@ Route::name('movie.')->group(function () {
 });
 
 // Admin
-Route::group(['middleware' => 'auth', 'as' => 'admin.'], function () {
-	Route::resource('movie', AdminMovieController::class)->except('delete');
+Route::group(['middleware' => 'auth', 'as' => 'admin.', 'prefix' => 'admin'], function () {
+	Route::resource('movie', AdminMovieController::class)->except('show', 'delete');
 });
 
 // Session
