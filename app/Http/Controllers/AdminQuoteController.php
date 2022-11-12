@@ -7,6 +7,7 @@ use App\Http\Requests\UpdateQuoteRequest;
 use App\Models\Movie;
 use App\Models\Quote;
 use Illuminate\Http\RedirectResponse;
+use Illuminate\Support\Facades\Storage;
 use Illuminate\View\View;
 
 class AdminQuoteController extends Controller
@@ -67,6 +68,13 @@ class AdminQuoteController extends Controller
 			->with('success', 'Quote updated successfully!');
 	}
 
+	public function destroy(Movie $movie, Quote $quote)
+	{
+		$this->deleteImage($quote->image);
+		$quote->delete();
+		return back()->with('success', 'Quote deleted successfully!');
+	}
+
 	protected function reformatAttributes($attributes)
 	{
 		$attributes['content'] = [
@@ -81,5 +89,10 @@ class AdminQuoteController extends Controller
 	{
 		$image = request()->file('image');
 		return $image->store('images');
+	}
+
+	protected function deleteImage($image)
+	{
+		Storage::delete($image);
 	}
 }
