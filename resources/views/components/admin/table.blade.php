@@ -1,4 +1,4 @@
-@props(['title', 'description', 'create_label', 'create_url', 'columns', 'unlabeled_columns'])
+@props(['title', 'description', 'create_label', 'create_url', 'columns', 'unlabeled_columns', 'items'])
 
 <div class="mt-10 px-4 sm:px-6 lg:px-8">
     <div class="sm:flex sm:items-center">
@@ -43,6 +43,9 @@
                     </table>
                 </div>
             </div>
+        </div>
+        <div class="mt-6">
+            {{ $items->links() }}
         </div>
     </div>
 </div>

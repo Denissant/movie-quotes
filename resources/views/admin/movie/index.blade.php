@@ -9,6 +9,7 @@
         :create_url="route('admin.movie.create')"
         :columns="['Title', 'Added By', 'Date']"
         :unlabeled_columns="['View Movie', 'Manage Quotes', 'Edit', 'Delete']"
+        :items="$movies"
     >
         @foreach($movies as $movie)
             <x-admin.movie-row :movie="$movie" is_odd="{{ $loop->odd }}" />
