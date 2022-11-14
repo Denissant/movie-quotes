@@ -13,6 +13,7 @@
         :create_url="route('admin.movie.quote.create', $movie)"
         :columns="['Content', 'Image', 'Added By', 'Date']"
         :unlabeled_columns="['View Movie', 'Edit', 'Delete']"
+        :items="$quotes"
     >
         @foreach($quotes as $quote)
             <x-admin.quote-row :quote="$quote" :movie="$movie" is_odd="{{ $loop->odd }}" />

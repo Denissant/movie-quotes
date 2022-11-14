@@ -16,7 +16,7 @@ class AdminQuoteController extends Controller
 	{
 		return view('admin.quote.index', [
 			'movie'     => $movie,
-			'quotes'    => $movie->quotes()->filter(request('search'))->paginate(6)->withQueryString(),
+			'quotes'    => $movie->quotes()->filter(request('search'))->paginate(20)->withQueryString(),
 			'nav_title' => [$movie->title],
 		]);
 	}

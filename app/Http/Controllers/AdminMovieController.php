@@ -13,7 +13,7 @@ class AdminMovieController extends Controller
 	public function index(): View
 	{
 		return view('admin.movie.index', [
-			'movies'    => Movie::all(),
+			'movies'    => Movie::latest()->filter(request('search'))->paginate(20)->withQueryString(),
 			'nav_title' => [],
 		]);
 	}

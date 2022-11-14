@@ -1,4 +1,4 @@
-@props(['title', 'description', 'create_label', 'create_url', 'columns', 'unlabeled_columns'])
+@props(['title', 'description', 'create_label', 'create_url', 'columns', 'unlabeled_columns', 'items'])
 
 <div class="mt-10 px-4 sm:px-6 lg:px-8">
     <div class="sm:flex sm:items-center">
@@ -13,7 +13,9 @@
             </a>
         </div>
     </div>
-    
+
+    <x-form.search />
+
     <div class="mt-8 flex flex-col">
         <div class="-my-2 -mx-4 overflow-x-auto sm:-mx-6 lg:-mx-8">
             <div class="inline-block min-w-full py-2 align-middle md:px-6 lg:px-8">
@@ -41,6 +43,9 @@
                     </table>
                 </div>
             </div>
+        </div>
+        <div class="mt-6">
+            {{ $items->links() }}
         </div>
     </div>
 </div>
