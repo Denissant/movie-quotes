@@ -7,6 +7,9 @@
             <x-admin.breadcrumbs :nav_title="$nav_title" :movie="$movie" />
 
             <div class="absolute top-5 right-5 gap-5 flex">
+
+                <x-admin.lang-switch />
+
                 <a href="{{ route('movie.index') }}">
                     <x-button>Home</x-button>
                 </a>
