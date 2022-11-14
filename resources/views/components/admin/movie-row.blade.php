@@ -17,19 +17,19 @@
 
     <td class="relative whitespace-nowrap py-4 pl-3 pr-4 text-right text-sm font-medium sm:pr-6">
         <a href="{{ route('movie.show', $movie->slug) }}" class="text-indigo-600 hover:text-indigo-900">
-            View Movie
+            {{ __('View Movie') }}
         </a>
     </td>
 
     <td class="relative whitespace-nowrap py-4 pl-3 pr-4 text-right text-sm font-medium sm:pr-6">
         <a href="{{ route('admin.movie.quote.index', $movie->id) }}"
            class="text-indigo-600 hover:text-indigo-900 ring-indigo-500 ring-1 ring-offset-8 rounded-xl @if($is_odd) ring-offset-indigo-50 @endif">
-            Manage Quotes
+            {{ __('Manage Quotes') }}
         </a>
     </td>
 
     <td class="relative whitespace-nowrap py-4 pl-3 pr-4 text-right text-sm font-medium sm:pr-6">
-        <a href="{{ route('admin.movie.edit', $movie->id) }}" class="text-indigo-600 hover:text-indigo-900">Edit</a>
+        <a href="{{ route('admin.movie.edit', $movie->id) }}" class="text-indigo-600 hover:text-indigo-900">{{ __('Edit') }}</a>
     </td>
 
     <td class="relative whitespace-nowrap py-4 pl-3 pr-4 text-right text-sm font-medium sm:pr-6">
@@ -38,7 +38,7 @@
             @method('DELETE')
             <button data-delete-button data-delete-target="{{ $movie->title }}"
                     class="text-red-600 hover:text-indigo-900">
-                Delete
+                {{ __('Delete') }}
             </button>
         </form>
     </td>

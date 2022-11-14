@@ -22,18 +22,18 @@ class SessionsController extends Controller
 		{
 			session()->regenerate();
 			return redirect()->route('admin.movie.index')
-							 ->with('success', 'You have logged in successfully.');
+							 ->with('success', __('You have logged in successfully.'));
 		}
 
 		return back()
 			->withInput()
-			->withErrors(['username' => 'You have entered an invalid username or password.']);
+			->withErrors(['username' => __('You have entered an invalid username or password.')]);
 	}
 
 	public function destroy(): RedirectResponse
 	{
 		auth()->logout();
 
-		return redirect()->route('movie.index')->with('success', 'You have logged out.');
+		return redirect()->route('movie.index')->with('success', __('You have logged out.'));
 	}
 }

@@ -11,12 +11,12 @@
                 <x-admin.lang-switch />
 
                 <a href="{{ route('movie.index') }}">
-                    <x-button>Home</x-button>
+                    <x-button>{{ __('Home') }}</x-button>
                 </a>
 
                 <form method="POST" action="{{ route('logout') }}" class="text-xs font-semibold">
                     @csrf
-                    <x-button>Log Out</x-button>
+                    <x-button>{{ __('Log Out') }}</x-button>
                 </form>
             </div>
         </nav>

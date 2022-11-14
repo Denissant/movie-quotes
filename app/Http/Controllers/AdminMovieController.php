@@ -20,7 +20,7 @@ class AdminMovieController extends Controller
 
 	public function create(): View
 	{
-		return view('admin.movie.create', ['nav_title' => ['Add Movie']]);
+		return view('admin.movie.create', ['nav_title' => [__('Add Movie')]]);
 	}
 
 	public function store(StoreMovieRequest $request): RedirectResponse
@@ -31,7 +31,7 @@ class AdminMovieController extends Controller
 
 		$movie = Movie::create($attributes);
 		return redirect()->route('admin.movie.index')
-						 ->with('success', 'Movie "' . $movie->title . '" added successfully!');
+						 ->with('success', __('Movie "') . $movie->title . __('" added successfully!'));
 	}
 
 	public function edit(Movie $movie): View
@@ -49,7 +49,7 @@ class AdminMovieController extends Controller
 
 		$movie->update($attributes);
 		return redirect()->route('admin.movie.index')
-						 ->with('success', 'Movie updated successfully!');
+						 ->with('success', __('Movie updated successfully!'));
 	}
 
 	public function destroy(Movie $movie)
@@ -60,7 +60,7 @@ class AdminMovieController extends Controller
 		}
 
 		$movie->delete();
-		return back()->with('success', 'Movie "' . $movie->title . '" deleted successfully!');
+		return back()->with('success', __('Movie "') . $movie->title . __('" deleted successfully!'));
 	}
 
 	protected function reformatAttributes($attributes)

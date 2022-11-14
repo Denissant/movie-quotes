@@ -25,7 +25,7 @@ class AdminQuoteController extends Controller
 	{
 		return view('admin.quote.create', [
 			'movie'     => $movie,
-			'nav_title' => [$movie->title, 'Add Quote'],
+			'nav_title' => [$movie->title, __('Add Quote')],
 		]);
 	}
 
@@ -40,7 +40,7 @@ class AdminQuoteController extends Controller
 
 		Quote::create($attributes);
 		return redirect()->route('admin.movie.quote.index', $movie)
-			->with('success', 'Quote added successfully!');
+			->with('success', __('Quote added successfully!'));
 	}
 
 	public function edit(Movie $movie, Quote $quote): View
@@ -48,7 +48,7 @@ class AdminQuoteController extends Controller
 		return view('admin.quote.edit', [
 			'quote'     => $quote,
 			'movie'     => $movie,
-			'nav_title' => [$movie->title, 'Edit Quote'],
+			'nav_title' => [$movie->title, __('Edit Quote')],
 		]);
 	}
 
@@ -65,14 +65,14 @@ class AdminQuoteController extends Controller
 
 		$quote->update($attributes);
 		return redirect()->route('admin.movie.quote.index', $movie)
-			->with('success', 'Quote updated successfully!');
+			->with('success', __('Quote updated successfully!'));
 	}
 
 	public function destroy(Movie $movie, Quote $quote)
 	{
 		$this->deleteImage($quote->image);
 		$quote->delete();
-		return back()->with('success', 'Quote deleted successfully!');
+		return back()->with('success', __('Quote deleted successfully!'));
 	}
 
 	protected function reformatAttributes($attributes)
