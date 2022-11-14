@@ -1,9 +1,9 @@
 @props(['quote'])
 
-<article class="w-full bg-white rounded-xl mb-16 text-black">
+<article id="{{ $quote->id }}" class="w-full bg-white rounded-xl mb-16 text-black">
     <img
-        src="/storage/images/{{ $quote->image }}"
-        class="aspect-video w-full bg-red-500 rounded-t-xl"
+        src="/storage/{{ $quote->image }}"
+        class="aspect-video w-full rounded-t-xl"
         alt=""
     />
 

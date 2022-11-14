@@ -2,8 +2,6 @@
 
     <x-movies.background>
 
-
-
         <div class="flex justify-center">
             <section class="flex flex-col min-h-screen justify-center items-center text-white
                             py-24 w-10/12 lg:w-full max-w-screen-sm 2xl:max-w-screen-md"
