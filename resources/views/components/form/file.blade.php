@@ -17,7 +17,7 @@
              hidden
              src="#"
          @endif
-         alt="Uploaded image preview"
+         alt="{{ __('Uploaded image preview') }}"
          class="rounded-xl mt-3"
     />
 

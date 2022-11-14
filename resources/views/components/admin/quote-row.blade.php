@@ -21,12 +21,12 @@
 
     <td class="relative whitespace-nowrap py-4 pl-3 pr-4 text-right text-sm font-medium sm:pr-6">
         <a href="{{ route('movie.show', $movie->slug) }}" class="text-indigo-600 hover:text-indigo-900">
-            View Movie
+            {{ __('View Movie') }}
         </a>
     </td>
 
     <td class="relative whitespace-nowrap py-4 pl-3 pr-4 text-right text-sm font-medium sm:pr-6">
-        <a href="{{ route('admin.movie.quote.edit', [$movie, $quote]) }}" class="text-indigo-600 hover:text-indigo-900">Edit</a>
+        <a href="{{ route('admin.movie.quote.edit', [$movie, $quote]) }}" class="text-indigo-600 hover:text-indigo-900">{{ __('Edit') }}</a>
     </td>
 
     <td class="relative whitespace-nowrap py-4 pl-3 pr-4 text-right text-sm font-medium sm:pr-6">
@@ -35,7 +35,7 @@
             @method('DELETE')
             <button data-delete-button data-delete-target="{{ mb_strimwidth($quote->content, 0, 30, '...') }}"
                     class="text-red-600 hover:text-indigo-900">
-                Delete
+                {{ __('Delete') }}
             </button>
         </form>
     </td>

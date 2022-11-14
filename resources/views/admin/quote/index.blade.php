@@ -3,16 +3,16 @@
     @vite('resources/js/deleteConfirmation.js')
 
     @php
-        $title = 'Quotes of "' . $movie->title . '"';
+        $title = __('Quotes of "') . $movie->title . '"';
     @endphp
 
     <x-admin.table
         :title="$title"
-        description="All quotes of the movie. You can add, remove, and edit the quotes"
-        create_label="Add a Quote"
+        :description="__('All quotes of the movie. You can add, remove, and edit the quotes')"
+        :create_label="__('Add a Quote')"
         :create_url="route('admin.movie.quote.create', $movie)"
-        :columns="['Content', 'Image', 'Added By', 'Date']"
-        :unlabeled_columns="['View Movie', 'Edit', 'Delete']"
+        :columns="[__('Content'), __('Image'), __('Added By'), __('Date')]"
+        :unlabeled_columns="[__('View Movie'), __('Edit'), __('Delete')]"
         :items="$quotes"
     >
         @foreach($quotes as $quote)

@@ -169,7 +169,9 @@ return [
 	*/
 
 	'attributes' => [
-		'title_en' => 'title in English',
-		'title_ka' => 'title in Georgian',
+		'title_en'   => 'title',
+		'title_ka'   => 'title',
+		'content_en' => 'content',
+		'content_ka' => 'content',
 	],
 ];

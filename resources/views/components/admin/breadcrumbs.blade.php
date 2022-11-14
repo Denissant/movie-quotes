@@ -5,7 +5,7 @@
         <div class="flex items-center">
             <x-svg.breadcrumb-arrow />
             <a href="{{ route('admin.movie.index') }}" class="ml-4 text-sm font-medium text-indigo-500 hover:text-indigo-800 font-bold">
-                Movies
+                {{ __('Movies') }}
             </a>
         </div>
     </li>
