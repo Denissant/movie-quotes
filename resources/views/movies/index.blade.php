@@ -1,6 +1,7 @@
 <x-base>
 
     <x-movies.background>
+        @if($movie)
         <section class="flex flex-col min-h-screen justify-center items-center text-white py-24">
             <img
                 src="/storage/images/{{ $quote->image }}"
@@ -17,6 +18,10 @@
                 </h2>
             </div>
         </section>
+        @else
+        <h1 class="flex flex-col justify-center items-center h-screen text-white text-4xl">
+            {{ __('There are no quotes yet, check back later!') }}</h1>
+        @endif
     </x-movies.background>
 
 </x-base>

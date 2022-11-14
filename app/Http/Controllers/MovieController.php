@@ -10,7 +10,7 @@ class MovieController extends Controller
 	public function index(): View
 	{
 		$movie = Movie::has('quotes')->inRandomOrder()->first();
-		$quote = $movie->quotes()->inRandomOrder()->first();
+		$quote = $movie?->quotes()->inRandomOrder()->first();
 
 		return view('movies.index', [
 			'movie' => $movie,
