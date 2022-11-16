@@ -8,7 +8,7 @@
     </td>
 
     <td class="whitespace-nowrap px-3 py-4 text-sm text-gray-500">
-        <img src="/storage/{{ $quote->image }}" class="w-20" alt="" />
+        <img src="{{ asset('storage/' . $quote->image) }}" class="w-20" alt="" />
     </td>
 
     <td class="whitespace-nowrap px-3 py-4 text-sm text-gray-500">
