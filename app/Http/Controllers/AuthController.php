@@ -2,18 +2,18 @@
 
 namespace App\Http\Controllers;
 
-use App\Http\Requests\StoreSessionRequest;
+use App\Http\Requests\AuthenticateRequest;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\View\View;
 
-class SessionsController extends Controller
+class AuthController extends Controller
 {
-	public function create(): View
+	public function login(): View
 	{
-		return view('sessions.create');
+		return view('auth.login');
 	}
 
-	public function store(StoreSessionRequest $request): RedirectResponse
+	public function authenticate(AuthenticateRequest $request): RedirectResponse
 	{
 		$attributes = $request->validated();
 		$remember = request('remember-me') === 'on';
@@ -30,7 +30,7 @@ class SessionsController extends Controller
 			->withErrors(['username' => __('You have entered an invalid username or password.')]);
 	}
 
-	public function destroy(): RedirectResponse
+	public function logout(): RedirectResponse
 	{
 		auth()->logout();
 
