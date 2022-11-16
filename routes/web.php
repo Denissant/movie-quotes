@@ -4,7 +4,7 @@ use App\Http\Controllers\AdminMovieController;
 use App\Http\Controllers\AdminQuoteController;
 use App\Http\Controllers\LanguageController;
 use App\Http\Controllers\MovieController;
-use App\Http\Controllers\SessionsController;
+use App\Http\Controllers\AuthController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -33,6 +33,8 @@ Route::group(['middleware' => 'auth', 'as' => 'admin.', 'prefix' => 'admin'], fu
 });
 
 // Session
-Route::get('login', [SessionsController::class, 'create'])->name('login')->middleware('guest');
-Route::post('login', [SessionsController::class, 'store'])->middleware('guest');
-Route::post('logout', [SessionsController::class, 'destroy'])->name('logout')->middleware('auth');
+Route::controller(AuthController::class)->group(function () {
+	Route::get('login', 'login')->name('login')->middleware('guest');
+	Route::post('login', 'authenticate')->middleware('guest');
+	Route::post('logout', 'logout')->name('logout')->middleware('auth');
+});
