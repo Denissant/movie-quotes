@@ -2,7 +2,7 @@
 
 <article id="{{ $quote->id }}" class="w-full bg-white rounded-xl mb-16 text-black">
     <img
-        src="/storage/{{ $quote->image }}"
+        src="{{ asset('storage/' . $quote->image) }}"
         class="aspect-video w-full rounded-t-xl"
         alt=""
     />
